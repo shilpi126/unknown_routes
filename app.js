@@ -4,6 +4,11 @@ const express = require("express");
 
 const app = express();
 
+app.use((req,res,next)=>{
+    console.log(`${req.method} request made to ${req.url}`)
+    next();
+})
+
 app.use(express.json());
 
 app.get("/products",(req,res)=>{
